@@ -7,6 +7,7 @@
     <title>Paket Roaming - BerkahPay PPOB</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Alpine Logic -->
     <script>
@@ -130,7 +131,7 @@
                         // dan memanggil: window.snap.pay(snapToken, { onSuccess: ... })
                         alert(
                             `[SIMULASI] Membuka Popup Midtrans Snap...\n\nMemproses pembayaran:\n${this.selectedPackage.name}\nTotal: ${this.formatRupiah(this.selectedPackage.price)}`
-                            );
+                        );
                     }, 1500);
                 }
             };
@@ -138,7 +139,7 @@
     </script>
 
     <!-- Alpine.js -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <style>
         .no-scrollbar::-webkit-scrollbar {
             display: none;
