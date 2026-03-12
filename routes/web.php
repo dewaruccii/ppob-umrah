@@ -6,10 +6,10 @@ use App\Http\Controllers\Lib\RoamingDataController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'auth', 'controller' => AuthController::class, 'as' => 'auth.'], function () {
-    Route::get('/', 'index')->name('index');
-    Route::post('/', 'login')->name('login');
-    Route::post('/register', 'register')->name('register');
-    Route::post('/logout', 'logout')->name('logout')->middleware('auth:sanctum');
+    Route::get('/', 'index')->name('index')->middleware('guest');
+    Route::post('/', 'login')->name('login')->middleware('guest');
+    Route::post('/register', 'register')->name('register')->middleware('guest');
+    Route::get('/logout', 'logout')->name('logout')->middleware('auth');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -17,5 +17,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/roaming-data', [RoamingDataController::class, 'index'])->name('roaming-data.index');
 });
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
